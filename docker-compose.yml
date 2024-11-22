@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  reviewlens:
+    build: .
+    container_name: reviewlens_app
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - LLM_MODEL=${LLM_MODEL:-gemini-1.5-flash}
+      - BATCH_SIZE=5
+      - HOST=0.0.0.0
+      - PORT=8000
+    volumes:
+      - ./cache.db:/app/cache.db
+    restart: unless-stopped

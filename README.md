@@ -7,6 +7,9 @@
 
 ---
 
+
+> 🌐 **Live Public Deployment URL:** https://reviewlens-ai-ze7k.onrender.com
+
 ## 📌 Executive Summary
 
 **ReviewLens** is an intelligent, high-resilience web application designed for ecommerce store owners who receive hundreds of messy customer reviews and need actionable, one-screen business intelligence. 

@@ -1,6 +1,7 @@
-import uvicorn
+import os
 import sys
 from pathlib import Path
+import uvicorn
 
 # Ensure ReviewLens root is in python path
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -10,6 +11,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from app.config import PORT, HOST
 
 if __name__ == "__main__":
-    print(f"🚀 Starting ReviewLens AI Review Insights on http://{HOST}:{PORT}")
-    print("Press Ctrl+C to stop.")
-    uvicorn.run("app.main:app", host=HOST, port=PORT, reload=False)
+    port = int(os.getenv("PORT", PORT))
+    host = os.getenv("HOST", "0.0.0.0")
+    print(f"🚀 Starting ReviewLens AI Review Insights on http://{host}:{port}")
+    uvicorn.run("app.main:app", host=host, port=port, reload=False)
